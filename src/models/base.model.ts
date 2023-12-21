@@ -15,6 +15,7 @@ export class BaseModel {
     static async init() {
 
         try {
+            console.log('Initializing database connection');
             console.log(
                 'user: ',process.env.DB_USER,
                 'password: ',process.env.DB_PASSWORD,
@@ -26,11 +27,10 @@ export class BaseModel {
                 password:process.env.DB_PASSWORD,
                 connectString:process.env.DB_CONNECTIONSTRING,
             });
+            console.log('Connection was successful');
         } catch (err) {
             console.log(err);
         }
-
-        return new BaseModel();
     }
 
 

@@ -7,7 +7,7 @@ import { TaskModel } from "../models/task.model";
 export class TaskController {
     async getAll(req: Request,res: Response) {
         try {
-            const taskModel = await TaskModel.init();
+            const taskModel = await TaskModel.create();
             return res.json({
                 task: taskModel.findAll()
             }).status(200);
