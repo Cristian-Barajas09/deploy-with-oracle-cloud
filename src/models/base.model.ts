@@ -11,7 +11,6 @@ export class BaseModel {
 
         oracledb.outFormat = oracledb.OUT_FORMAT_OBJECT;
         oracledb.autoCommit = true;
-        oracledb.fetchAsString = [oracledb.CLOB];
 
             console.log('Initializing database connection');
             console.log(
