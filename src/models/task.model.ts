@@ -9,6 +9,11 @@ export class TaskModel extends BaseModel {
         super();
     }
 
+    static async create() {
+        await BaseModel.init();
+        return new TaskModel();
+    }
+
 
     public async findAll() {
         let conn;
