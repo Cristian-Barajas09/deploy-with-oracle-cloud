@@ -15,9 +15,11 @@ app.use(express.urlencoded({extended:false}));
 app.use(morgan('dev'));
 app.use(cors());
 
+const PREFIX = '/api/v1'
+
 // routes
 app.use (
-    '/api/v1',
+    PREFIX + '/tasks',
     taskRouter
 )
 
