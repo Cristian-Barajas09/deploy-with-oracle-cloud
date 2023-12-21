@@ -1,10 +1,5 @@
 import oracledb from 'oracledb';
 
-oracledb.outFormat = oracledb.OUT_FORMAT_OBJECT;
-oracledb.autoCommit = true;
-oracledb.fetchAsString = [oracledb.CLOB];
-
-
 export class BaseModel {
     protected oracledb = oracledb;
     protected name = 'BaseModel';
@@ -14,7 +9,10 @@ export class BaseModel {
 
     static async init() {
 
-        try {
+        oracledb.outFormat = oracledb.OUT_FORMAT_OBJECT;
+        oracledb.autoCommit = true;
+        oracledb.fetchAsString = [oracledb.CLOB];
+
             console.log('Initializing database connection');
             console.log(
                 'user: ',process.env.DB_USER,
@@ -28,9 +26,6 @@ export class BaseModel {
                 connectString:process.env.DB_CONNECTIONSTRING,
             });
             console.log('Connection was successful');
-        } catch (err) {
-            console.log(err);
-        }
     }
 
 
