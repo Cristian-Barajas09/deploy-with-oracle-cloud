@@ -15,6 +15,12 @@ export class BaseModel {
     static async init() {
 
         try {
+            console.log(
+                'user: ',process.env.DB_USER,
+                'password: ',process.env.DB_PASSWORD,
+                'connectionString: ',process.env.DB_CONNECTIONSTRING
+            );
+
             await oracledb.createPool({
                 user:process.env.DB_USER,
                 password:process.env.DB_PASSWORD,
